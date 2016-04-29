@@ -1,23 +1,20 @@
-package com.aca.dbpmla;
+package edu.aca.dbpmla;
 
-import com.aca.dbpmla.entity.GlobalHistoryTable;
-import com.aca.dbpmla.entity.LocalHistoryTable;
-import com.aca.dbpmla.entity.PerceptronTable;
-import com.aca.dbpmla.entity.Trace;
-import com.aca.dbpmla.perceptronsImpl.PerceptronPredictor;
-import com.aca.dbpmla.predictors.Predictor;
-import com.aca.dbpmla.traces.TraceManager;
-import com.aca.dbpmla.tracesImpl.TraceManagerImpl;
+import edu.aca.dbpmla.entity.GlobalHistoryTable;
+import edu.aca.dbpmla.entity.PerceptronTable;
+import edu.aca.dbpmla.entity.Trace;
+import edu.aca.dbpmla.predictorsImpl.PerceptronPredictor;
+import edu.aca.dbpmla.predictors.Predictor;
+import edu.aca.dbpmla.traces.TraceManager;
+import edu.aca.dbpmla.tracesImpl.TraceManagerImpl;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 public class Main {
 

@@ -1,6 +1,6 @@
-package com.aca.dbpmla.traces;
+package edu.aca.dbpmla.traces;
 
-import com.aca.dbpmla.entity.Trace;
+import edu.aca.dbpmla.entity.Trace;
 
 import java.io.InputStream;
 import java.util.List;

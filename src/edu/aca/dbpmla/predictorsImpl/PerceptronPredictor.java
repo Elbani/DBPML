@@ -1,9 +1,8 @@
-package com.aca.dbpmla.perceptronsImpl;
+package edu.aca.dbpmla.predictorsImpl;
 
-import com.aca.dbpmla.entity.GlobalHistoryTable;
-import com.aca.dbpmla.entity.LocalHistoryTable;
-import com.aca.dbpmla.entity.PerceptronTable;
-import com.aca.dbpmla.predictors.Predictor;
+import edu.aca.dbpmla.entity.GlobalHistoryTable;
+import edu.aca.dbpmla.entity.PerceptronTable;
+import edu.aca.dbpmla.predictors.Predictor;
 
 import java.util.List;
 
