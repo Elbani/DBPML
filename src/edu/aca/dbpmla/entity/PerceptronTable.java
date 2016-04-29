@@ -1,4 +1,4 @@
-package com.aca.dbpmla.entity;
+package edu.aca.dbpmla.entity;
 
 import java.util.LinkedList;
 import java.util.List;

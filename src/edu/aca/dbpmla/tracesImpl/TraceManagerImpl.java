@@ -1,7 +1,7 @@
-package com.aca.dbpmla.tracesImpl;
+package edu.aca.dbpmla.tracesImpl;
 
-import com.aca.dbpmla.entity.Trace;
-import com.aca.dbpmla.traces.TraceManager;
+import edu.aca.dbpmla.entity.Trace;
+import edu.aca.dbpmla.traces.TraceManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
