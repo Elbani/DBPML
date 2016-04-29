@@ -7,13 +7,13 @@ import java.util.List;
  */
 public class GlobalHistoryTable {
 
-    private List<Integer> globalHhistoryTable;
+    private List<Integer> globalHistoryTable;
 
     public List<Integer> getGlobalHistoryTable() {
-        return globalHhistoryTable;
+        return globalHistoryTable;
     }
 
     public void setGlobalHistoryTable(List<Integer> historyTable) {
-        this.globalHhistoryTable = historyTable;
+        this.globalHistoryTable = historyTable;
     }
 }
