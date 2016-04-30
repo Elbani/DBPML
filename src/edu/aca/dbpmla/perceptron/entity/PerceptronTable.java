@@ -1,4 +1,4 @@
-package edu.aca.dbpmla.entity;
+package edu.aca.dbpmla.perceptron.entity;
 
 import java.util.LinkedList;
 import java.util.List;

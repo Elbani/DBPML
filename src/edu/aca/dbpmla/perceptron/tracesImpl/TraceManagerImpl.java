@@ -1,7 +1,7 @@
-package edu.aca.dbpmla.tracesImpl;
+package edu.aca.dbpmla.perceptron.tracesImpl;
 
-import edu.aca.dbpmla.entity.Trace;
-import edu.aca.dbpmla.traces.TraceManager;
+import edu.aca.dbpmla.perceptron.entity.Trace;
+import edu.aca.dbpmla.perceptron.traces.TraceManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,11 +32,10 @@ public class TraceManagerImpl implements TraceManager {
             }
             String [] tokens = line.split("\\s+");
             Trace trace = new Trace();
-            trace.setInstructionAddress(Long.parseLong(tokens[1], 16));
-            trace.setTakenNotBranch(tokens[6]);
+            trace.setInstructionAddress(Long.parseLong(tokens[0], 16));
+            trace.setTakenNotBranch(tokens[1]);
 
-            if(!trace.getTakenNotBranch().equals("-"))
-                traces.add(trace);
+            traces.add(trace);
 
         }
         return traces;

@@ -1,4 +1,4 @@
-package edu.aca.dbpmla.entity;
+package edu.aca.dbpmla.perceptron.entity;
 
 /**
  * Created by elban on 4/23/16.
