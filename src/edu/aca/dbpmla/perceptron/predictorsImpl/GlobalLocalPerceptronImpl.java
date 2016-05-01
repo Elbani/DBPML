@@ -56,7 +56,7 @@ public class GlobalLocalPerceptronImpl{
         }
     }
 
-    public void runGlobalLocalPredictor(){
+    public void runGlobalLocalPredictor(String traceLocation){
 
         int numberOfPerceptrons = 8192;
 
@@ -69,7 +69,7 @@ public class GlobalLocalPerceptronImpl{
         InputStream inputStream = System.in;
 
         try {
-            inputStream = new FileInputStream("/home/elban/Desktop/traces/art.txt");
+            inputStream = new FileInputStream(traceLocation);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
