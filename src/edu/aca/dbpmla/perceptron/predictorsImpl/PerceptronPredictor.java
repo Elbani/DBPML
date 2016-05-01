@@ -71,7 +71,7 @@ public class PerceptronPredictor implements Predictor {
 
         Predictor perceptronPredictor = new PerceptronPredictor();
 
-        perceptronTable.initializePerceptronTable(integers.size(), perceptronTable.getPerceptrons());
+        perceptronTable.initializePerceptronTable(integers.size(), perceptronTable.getPerceptrons(), 940);
 
         BufferedReader r = new BufferedReader(new InputStreamReader(inputStream));
         String line = null;
