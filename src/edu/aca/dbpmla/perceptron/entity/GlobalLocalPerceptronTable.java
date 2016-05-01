@@ -5,20 +5,20 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by elban on 4/23/16.
+ * Created by elban on 5/1/16.
  */
-public class PerceptronTable {
-    private Map<Integer, List<Double>> perceptrons;
+public class GlobalLocalPerceptronTable {
+    private Map<Long, List<Double>> perceptrons;
 
-    public Map<Integer, List<Double>> getPerceptrons() {
+    public Map<Long, List<Double>> getPerceptrons() {
         return perceptrons;
     }
 
-    public void setPerceptrons(Map<Integer, List<Double>> perceptrons) {
+    public void setPerceptrons(Map<Long, List<Double>> perceptrons) {
         this.perceptrons = perceptrons;
     }
 
-    public Map<Integer, List<Double>> initializePerceptronTable(int numberOfWeights, Map<Integer, List<Double>> perceptronTable, int numberOfPerceptrons){
+    public Map<Long, List<Double>> initializePerceptronTable(int numberOfWeights, Map<Long, List<Double>> perceptronTable, int numberOfPerceptrons){
 
         for(int k = 0; k<numberOfPerceptrons; k++) {
             List<Double> weights = new LinkedList<>();
@@ -27,10 +27,8 @@ public class PerceptronTable {
                 weights.add(randomWeight);
             }
 
-            perceptronTable.put(k, weights);
+            perceptronTable.put(Long.valueOf(k), weights);
         }
         return perceptronTable;
     }
-
-
 }
