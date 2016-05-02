@@ -47,7 +47,7 @@ public class PerceptronPredictor implements Predictor {
 
     }
 
-    public void runPerceptron(){
+    public double runPerceptron(String traceLocation){
         Long startTime = System.nanoTime();
 
         List<Integer> integers = new LinkedList<>(Collections.nCopies(62, 1));
@@ -57,7 +57,7 @@ public class PerceptronPredictor implements Predictor {
         InputStream inputStream = System.in;
 
         try {
-            inputStream = new FileInputStream("/home/elban/Desktop/traces/gcc.txt");
+            inputStream = new FileInputStream(traceLocation);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -121,5 +121,6 @@ public class PerceptronPredictor implements Predictor {
 
         System.out.println("Time: " + (endTime - startTime));
         System.out.println("Accuracy: " + accuratelyPredicted / total);
+        return accuratelyPredicted / total;
     }
 }
