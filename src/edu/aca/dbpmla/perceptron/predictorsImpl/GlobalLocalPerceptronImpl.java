@@ -56,7 +56,7 @@ public class GlobalLocalPerceptronImpl{
         }
     }
 
-    public void runGlobalLocalPredictor(String traceLocation){
+    public double runGlobalLocalPredictor(String traceLocation){
 
         int numberOfPerceptrons = 8192;
 
@@ -154,5 +154,6 @@ public class GlobalLocalPerceptronImpl{
 
         System.out.println("Time: " + (endTime - startTime));
         System.out.println("Accuracy: " + accuratelyPredicted / total);
+        return accuratelyPredicted/total;
     }
 }
