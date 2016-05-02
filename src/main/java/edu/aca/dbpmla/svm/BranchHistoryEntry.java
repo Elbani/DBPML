@@ -1,4 +1,4 @@
-package edu.aca.dbpmla.SVM_Global_Local; /**
+package edu.aca.dbpmla.svm; /**
  * @author Dardan Xhymshiti
  * BranchHistoryEntry: models a branch history entry, with a predefined entry size
  * @param entry_size: defines how many branches this entry contains

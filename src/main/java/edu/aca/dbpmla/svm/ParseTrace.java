@@ -1,4 +1,4 @@
-package edu.aca.dbpmla.SVM_Global_Local;
+package edu.aca.dbpmla.svm;
 
 import java.io.*;
 import java.util.*;
