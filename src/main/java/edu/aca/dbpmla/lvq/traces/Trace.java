@@ -1,5 +1,8 @@
 package edu.aca.dbpmla.lvq.traces;
 
+/**
+ * Created by ardian on 5/2/2016.
+ */
 public class Trace {
 
     private Long programCounter;

@@ -8,7 +8,11 @@ import java.util.List;
  * Created by ardian on 4/29/2016.
  */
 public class TraceManager {
-
+    /**
+     * Read the trace file.
+     * @param tracePath
+     * @return
+     */
     public List<Trace> readTrace(String tracePath){
 
         List<Trace> traces = new ArrayList<>();
@@ -23,6 +27,12 @@ public class TraceManager {
 
     }
 
+    /**
+     * Read from file path.
+     * @param tracePath
+     * @return
+     * @throws Exception
+     */
     public List<Trace> read(String tracePath) throws Exception {
         File file = new File(tracePath);
         InputStream inputStream = new FileInputStream(file);
@@ -30,6 +40,13 @@ public class TraceManager {
         return process(inputStream, printStream);
     }
 
+    /**
+     * Parse trace file.
+     * @param inputStream
+     * @param printStream
+     * @return
+     * @throws Exception
+     */
     private List<Trace> process(InputStream inputStream, PrintStream printStream) throws Exception {
 
         String line;
@@ -71,6 +88,14 @@ public class TraceManager {
         return tracesList;
     }
 
+    /**
+     * Create input vector - PC(Program Counter k-bits) + Local History Register (n-bits) + Global History Register (n-bits)
+     * @param globalHistoryRegister
+     * @param localHistoryRegister
+     * @param address
+     * @param addressBitLength
+     * @return
+     */
     public int[] generateInputVector(List<Integer> globalHistoryRegister, List<Integer> localHistoryRegister, Long address, int addressBitLength){
 
         String X = "";
