@@ -1,4 +1,4 @@
-package edu.aca.dbpmla.SVM_Global_Local; /**
+package edu.aca.dbpmla.svm; /**
  * @author Dardan Xhymshiti
  * SVM: the machine learning algorithm used to predict global branch outcomes
  */

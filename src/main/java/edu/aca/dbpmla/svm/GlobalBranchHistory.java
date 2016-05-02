@@ -1,4 +1,4 @@
-package edu.aca.dbpmla.SVM_Global_Local; /**
+package edu.aca.dbpmla.svm; /**
  * @author Dardan Xhymshiti
  * GlobalBranchHistory: simulates the work of the Global Branch History
  */
