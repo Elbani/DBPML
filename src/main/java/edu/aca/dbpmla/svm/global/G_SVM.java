@@ -11,8 +11,8 @@ public class G_SVM
 {
 	public G_SVM(){}
 	
-	private static int true_prediction;
-	private static int false_prediction;
+	private int true_prediction;
+	private int false_prediction;
 	
 	public svm_model trainModel(ArrayList<G_BranchHistoryEntry> bhe)
 	{

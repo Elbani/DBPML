@@ -14,8 +14,8 @@ public class SVM
 {
 	public SVM(){}
 	
-	private static int true_prediction;
-	private static int false_prediction;
+	private int true_prediction;
+	private int false_prediction;
 	
 	/**
 	 * trainModel: trains the prediction model based on the given data

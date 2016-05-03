@@ -96,7 +96,7 @@ public class GlobalBranchHistory
         algorithmResults.setTruePredictions(true_predictions);
         algorithmResults.setFalsePredictions(false_predicions);
         algorithmResults.setPredictionRate(accuracy*100);
-        algorithmResults.setMispredictionRate(100-accuracy);
+        algorithmResults.setMispredictionRate(100-accuracy*100);
 
         System.out.println("Total True Predictions: " + true_predictions);
         System.out.println("Total False Predictions: " + false_predicions);
