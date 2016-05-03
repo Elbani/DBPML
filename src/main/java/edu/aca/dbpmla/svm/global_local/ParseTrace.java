@@ -31,16 +31,18 @@ public ArrayList<Branch> parse(String trace_path)
 			
 			if(split_line[1].equals("T"))
 				{
-					branch_list.add(new Branch(split_line[0], 1));
+					branch_list.add(new Branch(Integer.parseInt(split_line[0], 16), 1));
 				}
 			else if(split_line[1].equals("N"))
 				{
-					branch_list.add(new Branch(split_line[0], 0));
+					branch_list.add(new Branch(Integer.parseInt(split_line[0], 16), 0));
 				}
 		}
 		reader.close();
 	}
-	catch(Exception ex){ }
+	catch(Exception ex){
+		System.out.println("tali");
+	}
 
 	System.out.println("FINISHED");
 	return branch_list;

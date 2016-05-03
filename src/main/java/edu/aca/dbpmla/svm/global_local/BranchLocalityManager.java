@@ -7,7 +7,7 @@ import java.util.*;
 
 public class BranchLocalityManager 
 {	
-	private HashMap<String, ArrayList<Integer>> locality = new HashMap<String, ArrayList<Integer>>(); //Address, decisions
+	private HashMap<Integer, ArrayList<Integer>> locality = new HashMap<Integer, ArrayList<Integer>>(); //Address, decisions
 	private SVM_Locality svm;
 	private int entry_size = 4;
 

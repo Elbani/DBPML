@@ -5,14 +5,14 @@ package edu.aca.dbpmla.svm.global_local;
  */
 public class Branch 
 {
-	private String address;
+	private int address;
 	private int decision;
 		
 	/**Constructor
 	 * @param address: the address of the branch
 	 * @param decision: the taken/not taken decision of the branch
 	 */
-	public Branch(String address, int decision)
+	public Branch(int address, int decision)
 	{
 		this.address = address;
 		this.decision = decision;
@@ -28,7 +28,7 @@ public class Branch
 		
 		if(o instanceof Branch)
 		{
-			if(this.address.equals(((Branch) o).address))
+			if(this.address == (((Branch) o).address))
 				answer = true;
 		}
 		return answer;
@@ -45,7 +45,7 @@ public class Branch
 	/**getAddress
 	 * @return: the address of the branch
 	 */
-	public String getAddress()
+	public int getAddress()
 	{
 		return address;
 	}
