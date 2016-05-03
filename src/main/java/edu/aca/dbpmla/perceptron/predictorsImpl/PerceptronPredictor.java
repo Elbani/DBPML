@@ -1,5 +1,6 @@
 package edu.aca.dbpmla.perceptron.predictorsImpl;
 
+import edu.aca.dbpmla.common.AlgorithmResults;
 import edu.aca.dbpmla.perceptron.entity.GlobalHistoryTable;
 import edu.aca.dbpmla.perceptron.entity.PerceptronTable;
 import edu.aca.dbpmla.perceptron.entity.Trace;
@@ -47,8 +48,10 @@ public class PerceptronPredictor implements Predictor {
 
     }
 
-    public double runPerceptron(String traceLocation){
+    public AlgorithmResults runPerceptron(String traceLocation){
         Long startTime = System.nanoTime();
+
+        AlgorithmResults algorithmResults = new AlgorithmResults();
 
         List<Integer> integers = new LinkedList<>(Collections.nCopies(62, 1));
         double total = 0.0;
@@ -121,6 +124,10 @@ public class PerceptronPredictor implements Predictor {
 
         System.out.println("Time: " + (endTime - startTime));
         System.out.println("Accuracy: " + accuratelyPredicted / total);
-        return accuratelyPredicted / total;
+        algorithmResults.setTruePredictions(accuratelyPredicted);
+        algorithmResults.setFalsePredictions((int)total - accuratelyPredicted);
+        algorithmResults.setPredictionRate(accuratelyPredicted*100/total);
+        algorithmResults.setMispredictionRate(100-accuratelyPredicted*100/total);
+        return algorithmResults;
     }
 }

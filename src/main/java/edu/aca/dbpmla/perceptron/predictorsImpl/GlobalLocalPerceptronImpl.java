@@ -1,5 +1,6 @@
 package edu.aca.dbpmla.perceptron.predictorsImpl;
 
+import edu.aca.dbpmla.common.AlgorithmResults;
 import edu.aca.dbpmla.perceptron.entity.GlobalHistoryTable;
 import edu.aca.dbpmla.perceptron.entity.GlobalLocalPerceptronTable;
 import edu.aca.dbpmla.perceptron.entity.LocalHistoryTable;
@@ -56,7 +57,9 @@ public class GlobalLocalPerceptronImpl{
         }
     }
 
-    public double runGlobalLocalPredictor(String traceLocation){
+    public AlgorithmResults runGlobalLocalPredictor(String traceLocation){
+
+        AlgorithmResults algorithmResults = new AlgorithmResults();
 
         int numberOfPerceptrons = 8192;
 
@@ -127,9 +130,9 @@ public class GlobalLocalPerceptronImpl{
                 predicion = true;
 
             boolean correctPrediction = false;
-            if(branchOutcome == predicion)
+            if(branchOutcome == predicion) {
                 correctPrediction = true;
-
+            }
             globalLocalPerceptron.train(y, branchOutcome, perceptronTable , correctPrediction, theta, indexList);
 
             if (trace.getTakenNotBranch().equals("T")) {
@@ -154,6 +157,10 @@ public class GlobalLocalPerceptronImpl{
 
         System.out.println("Time: " + (endTime - startTime));
         System.out.println("Accuracy: " + accuratelyPredicted / total);
-        return accuratelyPredicted/total;
+        algorithmResults.setTruePredictions(accuratelyPredicted);
+        algorithmResults.setFalsePredictions((int)total - accuratelyPredicted);
+        algorithmResults.setPredictionRate(accuratelyPredicted*100/total);
+        algorithmResults.setMispredictionRate(100-accuratelyPredicted*100/total);
+        return algorithmResults;
     }
 }
