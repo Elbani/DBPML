@@ -6,6 +6,9 @@ import edu.aca.dbpmla.naivebayesian.predictor.NBOriginalPredictor;
 import edu.aca.dbpmla.naivebayesian.predictor.NBSetAssociativityPredictor;
 import edu.aca.dbpmla.perceptron.predictorsImpl.GlobalLocalPerceptronImpl;
 import edu.aca.dbpmla.perceptron.predictorsImpl.PerceptronPredictor;
+import edu.aca.dbpmla.svm.global.G_BranchHistoryEntry;
+import edu.aca.dbpmla.svm.global.G_GlobalBranchHistory;
+import edu.aca.dbpmla.svm.global_local.GlobalBranchHistory;
 
 /**
  * Created by Taulant on 5/1/2016.
@@ -43,8 +46,12 @@ public class Main {
                 learningVectorQuantization.runLVQ(args[0]);
                 break;
             case "3":
+                G_GlobalBranchHistory g_globalBranchHistory = new G_GlobalBranchHistory();
+                g_globalBranchHistory.run(args[0]);
                 break;
             case "4":
+                GlobalBranchHistory globalBranchHistory = new GlobalBranchHistory();
+                globalBranchHistory.run(args[0]);
                 break;
             case "5":
                 NBOriginalPredictor nbOriginalPredictor = new NBOriginalPredictor();

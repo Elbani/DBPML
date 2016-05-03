@@ -1,4 +1,5 @@
-package edu.aca.dbpmla.svm; /**
+package edu.aca.dbpmla.svm.global_local;
+/**
  * @author Dardan Xhymshiti
  * BranchLocalityManager - manages the branch prediction for a single branch
  */
@@ -48,7 +49,7 @@ public class BranchLocalityManager
 		double [][] history = getBranchLocalityHistory(local_branch_decisions, entry_size); 
 		double prediction = svm.predictLocalLabels(b.getBranchDecicion(), svm.trainLocalModel(history));
 		locality.get(b.getAddress()).add(b.getBranchDecicion());
-		local_branch_decisions.add((int)prediction);
+		local_branch_decisions.add(b.getBranchDecicion());
 		return prediction;
 	}
 	

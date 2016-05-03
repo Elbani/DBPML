@@ -1,13 +1,18 @@
-package edu.aca.dbpmla.svm; /**
+package edu.aca.dbpmla.svm.global_local;
+/**
  * @author Dardan Xhymshiti
  * GlobalBranchHistory: simulates the work of the Global Branch History
  */
 import java.util.ArrayList;
+
+import edu.aca.dbpmla.common.AlgorithmResults;
 import libsvm.svm_model;
 
 public class GlobalBranchHistory 
 {
 	private double accuracy;
+	private int true_predictions;
+	private int false_predicions;
 	
 	public GlobalBranchHistory(){}
 	
@@ -15,8 +20,9 @@ public class GlobalBranchHistory
 	 * run: runs the simulation
 	 * @param trace_path: the path of the trace file
 	 */
-	public void run(String trace_path)
+	public AlgorithmResults run(String trace_path)
 	{
+		AlgorithmResults algorithmResults = new AlgorithmResults();
 		System.out.println("Process is being initiated...");
 		SVM svm = new SVM();
 		SVM_Locality svm_locality = new SVM_Locality();
@@ -26,12 +32,12 @@ public class GlobalBranchHistory
 		//=================================Traces===================================
 		ParseTrace pt = new ParseTrace();
 		ArrayList<Branch> branch_list = pt.parse(trace_path);
-		System.out.println(branch_list.size());
+		//System.out.println(branch_list.size());
 		//==========================================================================
 		
 		
 		//===============================Training dataset===========================
-		int entry_size = 20;
+		int entry_size = 37;
 		int training_entries = 50; // how many branches you want to use for training
 		int nr_entries = training_entries - entry_size;  
 		
@@ -50,8 +56,7 @@ public class GlobalBranchHistory
 		}
 		
 		//==============================Testing dataset=============================
-		int true_predictions = 0;
-		
+				
 		svm_model model = svm.trainModel(gbh);
 		int index = 0;
 		int i = 0;
@@ -78,24 +83,19 @@ public class GlobalBranchHistory
 			index++;
 			i++;
 			j++;
-			System.out.println(index);
+			//System.out.println(index);
 		}
 		
 		System.out.println("finished");
 		
 		true_predictions = svm.getTruePredictions() + svm_locality.getTruePredictions();
+		false_predicions = svm.getFalsePredictions() + svm_locality.getFalsePredictions();
 		accuracy = true_predictions/(double)(branch_list.size()-entry_size);
-	}
-	
-	public double getAccuracy()
-	{
-		return accuracy;
-	}
-	
-	public static void main(String[] args) 
-	{
-		GlobalBranchHistory gbh = new GlobalBranchHistory();
-		String trace_path = "C:\\Users\\xhymshid\\Desktop\\New Traces\\gcc.txt";
-		gbh.run(trace_path);
+
+        algorithmResults.setTruePredictions(true_predictions);
+        algorithmResults.setFalsePredictions(false_predicions);
+        algorithmResults.setPredictionRate(accuracy*100);
+        algorithmResults.setMispredictionRate(100-accuracy);
+        return algorithmResults;
 	}
 }

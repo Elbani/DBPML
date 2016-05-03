@@ -1,5 +1,4 @@
-package edu.aca.dbpmla.svm;
-
+package edu.aca.dbpmla.svm.global_local;
 /**
  * @author Dardan Xhymshiti
  * Branch - This class models a branch with a given address and branch decision.

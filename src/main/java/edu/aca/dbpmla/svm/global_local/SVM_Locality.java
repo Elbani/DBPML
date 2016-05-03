@@ -1,4 +1,5 @@
-package edu.aca.dbpmla.svm; /**
+package edu.aca.dbpmla.svm.global_local;
+/**
  * @author Dardan Xhymshiti
  * SVM_Locality: modified SVM algorithm to predict branch outcomes for a single branch
  */
