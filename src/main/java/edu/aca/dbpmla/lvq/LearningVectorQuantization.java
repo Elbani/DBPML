@@ -7,14 +7,29 @@ import edu.aca.dbpmla.lvq.traces.TraceManager;
 
 import java.text.DecimalFormat;
 import java.util.*;
-
+/**
+ * Created by ardian on 5/2/2016.
+ */
 public class LearningVectorQuantization {
 
+    /**
+     * Learn rate decay. It decrements the learning rate value during iterations.
+     * @param learnRate
+     * @return
+     */
     public double learningRateDecay(double learnRate) {
         double newLearnRate = learnRate / (1+learnRate);
         return newLearnRate;
     }
 
+    /**
+     * Train the predictor. If the prediction correct update winning weights, else decrement.
+     * @param vw
+     * @param inputVector
+     * @param correctPrediction
+     * @param learningRate
+     * @return
+     */
     public double[] train(double[] vw, int[] inputVector, boolean correctPrediction, double learningRate) {
         //Vw(t+1) = Vw(t) + a(t)[X(t) - Vw(t)]
         if(correctPrediction){
@@ -27,6 +42,12 @@ public class LearningVectorQuantization {
         return vw;
     }
 
+    /**
+     * Calculate Hamming distance between input vector and weight vector.
+     * @param inputVector
+     * @param weightVector
+     * @return
+     */
     private double calculateHammingDistance(int[] inputVector, double[] weightVector) {
         double res = 0;
         for (int i = 0; i < inputVector.length; i++) {
@@ -35,8 +56,13 @@ public class LearningVectorQuantization {
         return res;
     }
 
-
-
+    /**
+     * Predict the output depending of input vectors.
+     * @param inputVector
+     * @param vnt
+     * @param vt
+     * @return
+     */
     public boolean predict(int[] inputVector, double[] vnt, double[] vt) {
 
         double inputVectorVntDistance = calculateHammingDistance(inputVector, vnt);
@@ -47,14 +73,16 @@ public class LearningVectorQuantization {
         return true;
     }
 
+    /**
+     * Learning Vector Quantization main method.
+     * @param traceLocation
+     * @return
+     */
     public double runLVQ(String traceLocation){
-        //algorithm inputs
-        int programCounterBits = 10;
-        double learnRate = 0.01;
+        int programCounterBits = 10;  //least significant bits for locality
+        double learnRate = 0.01; //initial learning rate, preferred value (it can be modified by decaying the value.
         int branchHistoryLength = 4; //branch history length, (k) bits of previous branches on Global History Register
         int localHistoryLength = 4; //local branch history length, (l) bits of previous recordings of particular branch in Local History Register
-
-        long startTime = System.nanoTime();
 
         TraceManager traceManager = new TraceManager();
 
@@ -122,17 +150,12 @@ public class LearningVectorQuantization {
 
         }
 
-        long endTime = System.nanoTime();
-        double duration = (double)(endTime - startTime) / 1000000000.0;
-
         DecimalFormat df = new DecimalFormat("#.00");
         double percentage = (correctPredictions/totalPredictions) * 100;
-        //System.out.println("Execution time: " + duration + "\n");
         System.out.println("False predictions:" + (int)(totalPredictions-correctPredictions));
         System.out.println("Correct predictions: " + correctPredictions);
         System.out.println("Total: " + (int)totalPredictions);
         System.out.println("Accuracy: " + df.format(percentage) + "%");
-        //System.out.println(correctPredictions/totalPredictions);
 
         return percentage;
     }
