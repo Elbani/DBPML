@@ -1,5 +1,6 @@
 package edu.aca.dbpmla.naivebayesian.predictor;
 
+import edu.aca.dbpmla.common.AlgorithmResults;
 import edu.aca.dbpmla.naivebayesian.entity.NaiveBayesianStructure;
 
 import java.io.*;
@@ -11,12 +12,12 @@ import java.util.HashMap;
  */
 public class NBSetAssociativityPredictor extends NaiveBayesianImplementation {
 
-    public double runNBSetAssociativity(String traceLocation) {
-        int totalBranches = 0, truePredictions = 0, falsePredictions = 0;
+    public AlgorithmResults runNBSetAssociativity(String traceLocation) {
+        int totalBranches = 0, truePredictions = 0;
         boolean prediction;
         NaiveBayesianStructure naiveBayesianStructure;
         HashMap<Integer, NaiveBayesianStructure> nbHashMapPredictor = new HashMap<>();
-
+        AlgorithmResults algorithmResults = new AlgorithmResults();
 
         InputStream inputStream = System.in;
 
@@ -63,10 +64,7 @@ public class NBSetAssociativityPredictor extends NaiveBayesianImplementation {
 
             if (prediction && branchStatus == 1 || !prediction && branchStatus == 0) {
                 truePredictions++;
-            } else {
-                falsePredictions++;
-            }
-        }
+            }         }
 
         long endTime = System.nanoTime();
 
@@ -75,14 +73,18 @@ public class NBSetAssociativityPredictor extends NaiveBayesianImplementation {
         System.out.println("TIME: " + duration);
         System.out.println("Total Branches: " + totalBranches);
         System.out.println("Total True Predictions: " + truePredictions);
-        System.out.println("Total False Predictions: " + falsePredictions);
+        System.out.println("Total False Predictions: " + (totalBranches - truePredictions) );
 
         DecimalFormat df2 = new DecimalFormat(".##");
 
         String accuracy = df2.format((double) truePredictions / totalBranches * 100);
         System.out.println("\n Accuracy : " + accuracy + "%");
 
+        algorithmResults.setTruePredictions(truePredictions);
+        algorithmResults.setFalsePredictions(totalBranches - truePredictions);
+        algorithmResults.setPredictionRate(truePredictions*100/totalBranches);
+        algorithmResults.setMispredictionRate(100-truePredictions*100/totalBranches);
 
-        return (double) truePredictions / totalBranches;
+        return algorithmResults;
     }
 }

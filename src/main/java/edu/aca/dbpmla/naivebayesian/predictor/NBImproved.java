@@ -1,5 +1,6 @@
 package edu.aca.dbpmla.naivebayesian.predictor;
 
+import edu.aca.dbpmla.common.AlgorithmResults;
 import edu.aca.dbpmla.naivebayesian.entity.NaiveBayesianStructure;
 
 import java.io.*;
@@ -11,12 +12,12 @@ import java.util.HashMap;
  */
 public class NBImproved extends NaiveBayesianImplementation {
 
-    public double runNBImproved(String traceLocation) {
+    public AlgorithmResults runNBImproved(String traceLocation) {
         int totalBranches = 0, truePredictions = 0, falsePredictions = 0;
         boolean prediction;
         NaiveBayesianStructure naiveBayesianStructure;
         HashMap<Integer, NaiveBayesianStructure> nbHashMapPredictor = new HashMap<>();
-
+        AlgorithmResults algorithmResults = new AlgorithmResults();
 
         InputStream inputStream = System.in;
 
@@ -81,7 +82,11 @@ public class NBImproved extends NaiveBayesianImplementation {
         String accuracy = df2.format((double) truePredictions / totalBranches * 100);
         System.out.println("\n Accuracy : " + accuracy + "%");
 
+        algorithmResults.setTruePredictions(truePredictions);
+        algorithmResults.setFalsePredictions(totalBranches - truePredictions);
+        algorithmResults.setPredictionRate(truePredictions*100/totalBranches);
+        algorithmResults.setMispredictionRate(100-truePredictions*100/totalBranches);
 
-        return (double) truePredictions / totalBranches;
+        return algorithmResults;
     }
 }
