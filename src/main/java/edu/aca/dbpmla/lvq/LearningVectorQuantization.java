@@ -1,5 +1,6 @@
 package edu.aca.dbpmla.lvq;
 
+import edu.aca.dbpmla.common.AlgorithmResults;
 import edu.aca.dbpmla.lvq.branches.GlobalHistoryRegister;
 import edu.aca.dbpmla.lvq.branches.LocalHistoryRegister;
 import edu.aca.dbpmla.lvq.traces.Trace;
@@ -78,7 +79,7 @@ public class LearningVectorQuantization {
      * @param traceLocation
      * @return
      */
-    public double runLVQ(String traceLocation){
+    public AlgorithmResults runLVQ(String traceLocation){
         int programCounterBits = 10;  //least significant bits for locality
         double learnRate = 0.01; //initial learning rate, preferred value (it can be modified by decaying the value.
         int branchHistoryLength = 4; //branch history length, (k) bits of previous branches on Global History Register
@@ -157,6 +158,14 @@ public class LearningVectorQuantization {
         System.out.println("Total: " + (int)totalPredictions);
         System.out.println("Accuracy: " + df.format(percentage) + "%");
 
-        return percentage;
+        AlgorithmResults algorithmResults = new AlgorithmResults();
+        algorithmResults.setPredictionRate(percentage);
+        algorithmResults.setMispredictionRate(100 - percentage);
+        algorithmResults.setTruePredictions(correctPredictions);
+        algorithmResults.setFalsePredictions((int)totalPredictions - correctPredictions);
+
+
+
+        return algorithmResults;
     }
 }
