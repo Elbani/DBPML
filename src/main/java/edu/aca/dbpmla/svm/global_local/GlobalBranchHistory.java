@@ -3,6 +3,7 @@ package edu.aca.dbpmla.svm.global_local;
  * @author Dardan Xhymshiti
  * GlobalBranchHistory: simulates the work of the Global Branch History
  */
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import edu.aca.dbpmla.common.AlgorithmResults;
@@ -96,6 +97,14 @@ public class GlobalBranchHistory
         algorithmResults.setFalsePredictions(false_predicions);
         algorithmResults.setPredictionRate(accuracy*100);
         algorithmResults.setMispredictionRate(100-accuracy);
+
+        System.out.println("Total True Predictions: " + true_predictions);
+        System.out.println("Total False Predictions: " + false_predicions);
+
+        DecimalFormat df2 = new DecimalFormat(".##");
+
+        String accuracys = df2.format( accuracy * 100);
+        System.out.println("\n Accuracy : " + accuracys + "%");
         return algorithmResults;
 	}
 }

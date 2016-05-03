@@ -3,6 +3,7 @@ package edu.aca.dbpmla.svm.global;
 import edu.aca.dbpmla.common.AlgorithmResults;
 import libsvm.svm_model;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -82,6 +83,14 @@ public class G_GlobalBranchHistory
 		algorithmResults.setFalsePredictions(false_predictions);
 		algorithmResults.setPredictionRate(accuracy*100);
 		algorithmResults.setMispredictionRate(100-accuracy);
-		return algorithmResults;
+
+        System.out.println("Total True Predictions: " + true_predictions);
+        System.out.println("Total False Predictions: " + false_predictions);
+
+        DecimalFormat df2 = new DecimalFormat(".##");
+
+        String accuracys = df2.format( accuracy * 100);
+        System.out.println("\n Accuracy : " + accuracys + "%");
+        return algorithmResults;
 	}
 }
