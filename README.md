@@ -53,5 +53,5 @@ So the first argument is the trace you want to simulate and the second indicates
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
 [git-repo-url]: <https://github.com/Elbani/DBPML.git>
-[traces]: https://www.cis.upenn.edu/~milom/cis501-Fall12/traces/trace-format.html
+[traces]: https://drive.google.com/folderview?id=0B9GfMW5KBEynUVZjd2VVTzJHcWs&usp=sharing
 
