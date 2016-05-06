@@ -20,7 +20,10 @@ $ cd someFolder
 ```sh
 $ java -version
 ```
-> **Note:** Open the project with your IDE and make sure to download [traces] if you want to test it locally.
+> **Note:** Open the project with your IDE and make sure to download the Traces below if you want to test it locally.
+
+**[DOWNLOAD Traces here]**
+
 
 Running the project requires passing the program arguments. This can be done by opening `Main.java` from the main package. Depending on your IDE you need to edit configurations before running the `Main.java` file.
 > **Note:** Configuration is commented in `Main.java` class so you need to follow instructions on how to simulate different algorithms.
@@ -53,5 +56,5 @@ So the first argument is the trace you want to simulate and the second indicates
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
 [git-repo-url]: <https://github.com/Elbani/DBPML.git>
-[traces]: https://drive.google.com/folderview?id=0B9GfMW5KBEynUVZjd2VVTzJHcWs&usp=sharing
+[DOWNLOAD Traces here]: https://drive.google.com/folderview?id=0B9GfMW5KBEynUVZjd2VVTzJHcWs&usp=sharing
 
