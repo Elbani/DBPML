@@ -1,6 +1,6 @@
 # Dynamic Branch Prediction using Machine Learning Techniques
 
-This application contains an implementation of few neural network algorithm for dynamic branch prediction. The simulated algorithms are:
+This repository contains the implementation of machine learning algorithms for dynamic branch prediction. The algorithms are:
   - Perceptron
   - Perceptron with Global/Local history
   - Learning Vector Quantization Global/Local history
